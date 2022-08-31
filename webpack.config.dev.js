@@ -11,7 +11,7 @@ module.exports = {
         filename: '[name].[contenthash].js',
         assetModuleFilename: 'assets/images/[hash][ext][query]'
     },
-    watch: true,
+    //watch: true,
     mode: 'development',
     resolve: {
         extensions: ['.js'],
@@ -77,5 +77,12 @@ module.exports = {
             }]
         }),
         new DotEnv(),
-    ]
+
+    ],
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        historyApiFallback: true,
+        port: 3006,
+    },
 }
